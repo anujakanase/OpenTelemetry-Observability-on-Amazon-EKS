@@ -114,8 +114,3 @@ http://localhost:8080/feature
 Delete the EKS Cluster:
 
 eksctl delete cluster --name otel-observability
-
-
-
-Connect with me on LinkedIn and GitHub to follow my cloud-native learning journey.
-
