@@ -94,6 +94,8 @@ Use Kubernetes port forwarding to access the storefront and observability tools.
 
 ![Products](Open-telemetry/10.JPG)
 
+![Products](Open-telemetry/11.JPG)
+
 ## Grafana Dashboard
 
 ![Grafana](Open-telemetry/grafana.JPG)
