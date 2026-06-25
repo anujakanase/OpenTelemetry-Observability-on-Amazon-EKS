@@ -86,10 +86,18 @@ Use Kubernetes port forwarding to access the storefront and observability tools.
 | Load Generator   | Generate Application Traffic   |
 | Feature Flags UI | Feature Management             |
 
+## Application Home Page
+
 ![Home Page](Open-telemetry/9.JPG)
+
+## Product Catalog
 
 ![Products](Open-telemetry/10.JPG)
 
+## Grafana Dashboard
+
 ![Grafana](Open-telemetry/grafana.JPG)
+
+## Jaeger Traces
 
 ![Jaeger](Open-telemetry/frontend-web-service.JPG)
