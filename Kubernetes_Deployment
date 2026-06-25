@@ -1,6 +1,6 @@
-# Step 1: Create Amazon EKS Cluster
+Step 1: Create Amazon EKS Cluster
 
-## Prerequisites
+# Prerequisites
 
 Install and configure:
 
@@ -8,34 +8,27 @@ Install and configure:
 * eksctl
 * kubectl
 
-Configure AWS credentials:
+# Configure AWS credentials:
 
-```bash
 aws configure
-```
 
-### Create EKS Cluster
+# Create EKS Cluster
 
-```bash
 eksctl create cluster \
 --name=otel-observability \
 --region=ap-south-1 \
 --zones=ap-south-1a,ap-south-1b \
 --without-nodegroup
-```
 
-### Associate IAM OIDC Provider
+# Associate IAM OIDC Provider
 
-```bash
 eksctl utils associate-iam-oidc-provider \
 --region ap-south-1 \
 --cluster otel-observability \
 --approve
-```
 
-### Create Managed Node Group
+# Create Managed Node Group
 
-```bash
 eksctl create nodegroup \
 --cluster=otel-observability \
 --region=ap-south-1 \
@@ -51,124 +44,77 @@ eksctl create nodegroup \
 --appmesh-access \
 --alb-ingress-access \
 --node-private-networking
-```
 
-Verify Cluster:
-
-```bash
+# Verify Cluster:
 kubectl get nodes
-```
 
----
+Step 2: Clone Repository
 
-# Step 2: Clone Repository
-
-```bash
 git clone https://github.com/anujakanase/opentelemetry-demo.git
 
 cd opentelemetry-demo
-```
 
----
+Step 3: Install OpenTelemetry Demo using Helm
 
-# Step 3: Install OpenTelemetry Demo using Helm
+# Add OpenTelemetry Helm Repository
 
-### Add OpenTelemetry Helm Repository
-
-```bash
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 
 helm repo update
-```
 
-### Deploy OpenTelemetry Demo
+# Deploy OpenTelemetry Demo
 
-```bash
 helm install my-otel-demo open-telemetry/opentelemetry-demo
-```
-
----
 
 # Step 4: Generate Kubernetes Manifests
 
-```bash
 helm template opentelemetry-demo open-telemetry/opentelemetry-demo \
 --namespace otel-demo > opentelemetry-demo.yaml
-```
 
-Apply the generated manifests:
+# Apply the generated manifests:
 
-```bash
 kubectl apply -f opentelemetry-demo.yaml
-```
 
 Verify Pods:
-
-```bash
 kubectl get pods
-```
 
 Verify Services:
-
-```bash
 kubectl get svc
-```
-
----
 
 # Step 5: Access the Application
 
-Expose the frontend using port forwarding:
+# Expose the frontend using port forwarding:
 
-```bash
 kubectl --namespace default port-forward svc/frontend-proxy 8080:8080
-```
 
----
+🌐 Application URLs
 
-## 🌐 Application URLs
+# OpenTelemetry Demo Store
 
-### OpenTelemetry Demo Store
-
-```text
 http://localhost:8080/
-```
 
-### Grafana Dashboard
+# Grafana Dashboard
 
-```text
 http://localhost:8080/grafana/
-```
 
-### Load Generator UI
+# Load Generator UI
 
-```text
 http://localhost:8080/loadgen/
-```
 
-### Jaeger UI
+# Jaeger UI
 
-```text
 http://localhost:8080/jaeger/ui/
-```
 
-### Feature Flag Configurator
+# Feature Flag Configurator
 
-```text
 http://localhost:8080/feature
-```
-
----
 
 # 🧹 Cleanup
 
 Delete the EKS Cluster:
 
-```bash
 eksctl delete cluster --name otel-observability
-```
 
----
 
 
 Connect with me on LinkedIn and GitHub to follow my cloud-native learning journey.
