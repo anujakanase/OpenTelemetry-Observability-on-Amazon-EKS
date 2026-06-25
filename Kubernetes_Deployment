@@ -89,25 +89,11 @@ kubectl --namespace default port-forward svc/frontend-proxy 8080:8080
 
 🌐 Application URLs
 
-# OpenTelemetry Demo Store
+# OpenTelemetry Demo Store :- http://localhost:8080/
 
-http://localhost:8080/
+# Grafana Dashboard  :- http://localhost:8080/grafana/
 
-# Grafana Dashboard
-
-http://localhost:8080/grafana/
-
-# Load Generator UI
-
-http://localhost:8080/loadgen/
-
-# Jaeger UI
-
-http://localhost:8080/jaeger/ui/
-
-# Feature Flag Configurator
-
-http://localhost:8080/feature
+# Jaeger UI  :- http://localhost:8080/jaeger/ui/
 
 # 🧹 Cleanup
 
